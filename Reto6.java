@@ -1,9 +1,13 @@
 package reto6;
-
 import java.util.Scanner;
 import java.util.TimeZone;
+//Clase principal que contiene el menú y las funciones principales del programa.
 
 public class Reto6 {
+	/**
+     * Método principal que ejecuta el programa.
+     * @param args Argumentos de la línea de comandos (no se utilizan).
+     */
 	public static void main (String[] args) {
 	
 		  Scanner sc = new Scanner(System.in);
@@ -35,11 +39,11 @@ public class Reto6 {
                     convertirMoneda();
                     break;
                 case 3:
-                    System.out.println("Mostrando Días Festivos...");
+                    System.out.println("Mostrando Dias Festivos...");
                     diasFestivos();
                     break;
                 case 4:
-                    System.out.println("Mostrando Días Festivos...");
+                    System.out.println("Mostrando Dias Festivos...");
                     cambioIdioma();
                     break;
                     
@@ -51,7 +55,7 @@ public class Reto6 {
                     System.out.println("Saliendo del programa...");
                     break;
                 default:
-                    System.out.println("Opción inválida. Por favor, selecciona una opción válida.");
+                    System.out.println("Opcion invalida. Por favor, selecciona una opcion valida.");
                     break;
             }
         } while (opcion != 6);
@@ -60,10 +64,16 @@ public class Reto6 {
         sc.close();
 	}
 
-
+	/**
+	 * Muestra la hora actual en Malasia.
+	 * Este método obtiene la zona horaria actual de Malasia, la establece como la zona horaria predeterminada
+	 * para la aplicación y luego imprime la hora actual en Malasia.
+	 * Utiliza la clase TimeZone para obtener la zona horaria y la clase Date para obtener la hora actual.
+	 * La zona horaria utilizada es "Kuala Lumpur".
+	 */
 	public static void mostrarHoraMalasia() {
 		// Obtener la zona horaria actual de Malasia
-		TimeZone malasiaTimeZone = TimeZone.getTimeZone("Asia/Kuala_Lumpur");
+		TimeZone malasiaTimeZone = TimeZone.getTimeZone("Kuala Lumpur");
 
 		// Establecer la zona horaria predeterminada para la aplicación
 		TimeZone.setDefault(malasiaTimeZone);
@@ -71,7 +81,18 @@ public class Reto6 {
 		// Imprimir la hora actual en Malasia
 		System.out.println("Hora actual en Malasia: " + new java.util.Date());
 	}
-
+	/**
+	 * Convierte entre euros y ringgits de Malasia.
+	 * Este método permite al usuario ingresar una cantidad de euros y realiza la conversión a ringgits de Malasia (MYR),
+	 * y también permite al usuario ingresar una cantidad de ringgits de Malasia y realiza la conversión a euros (EUR).
+	 * Utiliza una tasa de cambio fija para realizar las conversiones.
+	 * 
+	 * Se solicita al usuario que ingrese las cantidades de euros y ringgits de Malasia.
+	 * Luego, se realizan los cálculos de conversión utilizando las tasas de cambio predefinidas.
+	 * Finalmente, se muestra el resultado de cada conversión.
+	 * 
+	 * @throws InputMismatchException si el usuario ingresa un valor no válido para las cantidades de euros o ringgits de Malasia.
+	 */
 	public static void convertirMoneda() {
 		Scanner sc = new Scanner(System.in);
 
@@ -103,7 +124,19 @@ public class Reto6 {
 		System.out.println("Fin de programa");
 		
 	}
-
+	/**
+	 * Muestra los días festivos de Malasia por mes.
+	 * Este método imprime los días festivos de Malasia por mes, utilizando una matriz de festivos predefinida
+	 * y un arreglo de nombres de meses para mostrar los festivos correspondientes a cada mes.
+	 * 
+	 * Los festivos se almacenan en una matriz bidimensional donde cada fila representa un festivo.
+	 * La primera columna de la matriz representa el día y la segunda columna representa el mes en el que ocurre el festivo.
+	 * 
+	 * Se itera sobre cada mes y se comprueba si hay festivos correspondientes a ese mes en la matriz de festivos.
+	 * Si se encuentra un festivo para el mes actual, se imprime el día del festivo junto con el nombre del mes.
+	 * 
+	 * @see <a href="https://en.wikipedia.org/wiki/Public_holidays_in_Malaysia">Public Holidays in Malaysia</a> para obtener más información sobre los festivos de Malasia.
+	 */
 	public static void diasFestivos() {
 
 		int[][] festivos1 = {
@@ -132,7 +165,24 @@ public class Reto6 {
 			System.out.println();
 		}
 	}
-
+	/**
+	 * Permite al usuario traducir una frase del español al inglés y al malayo.
+	 * Este método solicita al usuario que ingrese una frase en español, luego la traduce
+	 * al inglés y al malayo utilizando un diccionario predefinido de traducción.
+	 * 
+	 * El diccionario de traducción se define como un array tridimensional donde cada entrada
+	 * contiene tres elementos: la palabra en español, su traducción al inglés y su traducción al malayo.
+	 * 
+	 * Después de ingresar la frase en español, se valida si la frase está vacía. Si lo está,
+	 * se muestra un mensaje indicando que ninguna frase ha sido ingresada.
+	 * 
+	 * Luego, se traduce la frase ingresada al inglés y al malayo. Para ello, se iteran sobre todas
+	 * las entradas del diccionario y se reemplazan las palabras en español con sus respectivas traducciones.
+	 * 
+	 * Finalmente, se muestran las traducciones al inglés y al malayo en la consola.
+	 * 
+	 * @see <a href="https://en.wikipedia.org/wiki/Languages_of_Malaysia">Languages of Malaysia</a> para obtener más información sobre los idiomas de Malasia.
+	 */
 	public static void cambioIdioma() {
 		System.out.println();
 		// Definir el diccionario de traducción español - inglés - malayo como un array tridimensional
@@ -197,7 +247,18 @@ public class Reto6 {
 
 	}
 	 
-
+	/**
+	 * Realiza un cuestionario sobre Malasia, donde se hacen diez preguntas con opciones de respuesta
+	 * múltiple y se muestra la nota final al finalizar el cuestionario.
+	 * 
+	 * Se inicializan las preguntas y las respuestas correctas en arreglos. Luego, se utiliza un bucle
+	 * para iterar a través de cada pregunta, solicitando al usuario que seleccione una respuesta. La
+	 * validez de la respuesta ingresada se verifica y se muestra si es correcta o incorrecta. La función
+	 * continua hasta que se hayan realizado todas las preguntas o el usuario decida abortar el cuestionario.
+	 * 
+	 * Se proporcionan funciones auxiliares para verificar la validez de la respuesta, preguntar al usuario
+	 * por una respuesta y mostrar la nota final.
+	 */
 	public static void quiz() {
 		int i = 0;
 		int correcto = 0;
@@ -283,12 +344,24 @@ public class Reto6 {
 
 		mostrarNota(correcto, incorrecto);
 	}
-
+	/**
+	Verifica si la respuesta proporcionada es válida.
+	La respuesta válida debe ser "a", "b" o "c", sin importar mayúsculas o minúsculas.
+	@param a La respuesta proporcionada por el usuario.
+	@return true si la respuesta es válida, false de lo contrario.
+	*/
 	private static boolean esValido(String a) {
 		a = a.toLowerCase();
 		return a.equals("a") || a.equals("b") || a.equals("c");
 	}
-
+	/**
+	Realiza una pregunta mostrando las opciones disponibles y espera una respuesta del usuario.
+	Si el usuario proporciona una respuesta válida, la devuelve.
+	Si el usuario ingresa "ABORTAR", solicita confirmación para salir.
+	@param a Arreglo de strings que contiene las opciones de la pregunta.
+	@param scanner Scanner para leer la entrada del usuario.
+	@return La respuesta proporcionada por el usuario.
+	*/
 	private static String preguntar(String[] a, Scanner scanner) {
 		String pregunta = "";
 		String respuesta = "";
@@ -311,7 +384,12 @@ public class Reto6 {
 
 		return respuesta;
 	}
-
+	/**
+	Verifica si la respuesta dada por el usuario es correcta.
+	@param a La respuesta correcta.
+	@param r La respuesta proporcionada por el usuario.
+	@return true si la respuesta del usuario es correcta, false de lo contrario.
+	*/
 	private static boolean esCorrecto(String a, String r) {
 		r = r.toUpperCase();
 		if (a.equals(r)) {
@@ -322,7 +400,11 @@ public class Reto6 {
 			return false;
 		}
 	}
-
+	/**
+	Muestra la nota obtenida en el quiz.
+	@param c El número de respuestas correctas.
+	@param i El número de respuestas incorrectas.
+	*/
 	public static void mostrarNota(int c, int i) {
 		int numeroPregunta = c + i;
 		String total = "";
