@@ -99,12 +99,10 @@ public class Reto6 {
 		// Mostrar el resultado
 		System.out.println("La cantidad de " + cantidadMYR + " ringgits de Malasia equivale a " + resultadoEUR + " euros (EUR)");
 
-		sc.close(); // Cerrar el scanner al finalizar
+		
 		System.out.println("Fin de programa");
-		sc.close();
+		
 	}
-
-
 
 	public static void diasFestivos() {
 
@@ -164,7 +162,7 @@ public class Reto6 {
 		System.out.println();
 		System.out.print("Ingresa una frase en español: ");
 		String fraseEspañol = sc.nextLine().toLowerCase(); // Convertir la entrada a minúsculas
-		sc.close();
+	
 		
 		// Validar si la frase está vacía
 		if (fraseEspañol.isEmpty()) {
